@@ -6,6 +6,8 @@ from pprint import PrettyPrinter
 import math
 import time
 
+random.seed(input("Enter seed: "))
+
 DEBUG = False
 STEP_THROUGH = False
 
