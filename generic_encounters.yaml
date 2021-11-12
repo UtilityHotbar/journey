@@ -1,0 +1,60 @@
+town:
+  - urchin|1
+  - feral rat|1
+  - thief|2
+  - thief captain|3
+  - duel-hungry princeling|5
+  - bloodthirsty lord|10
+
+travel:
+  - fox|1
+  - goat|1
+  - wild chicken|1
+  - angry chicken|2
+  - wolf|4
+  - boar|6
+  - beeswarm|6
+  - angry druid|10
+  - wanderer warrior|10
+  - passing dragon|50
+
+dungeon:
+  - feral rat|1
+  - hungry bat|1
+  - scrappy kobold|1
+  - black slime|1
+  - green slime|1
+  - blue slime|1
+  - red slime|1
+  - fiery beetle|2
+  - gelatinous sphere|2
+  - small dragon wyrmling|2
+  - young cultist|2
+  - looter|2
+  - tomb robber|3
+  - venomous adder|3
+  - hunter|3
+  - weregoat|4
+  - werebadger|4
+  - weremule|4
+  - werehorse|4
+  - dungeon wolf|4
+  - dungeon seeker|4
+  - medium dragon wyrmling|6
+  - gelatinous pyramid|6
+  - flying dagger|6
+  - weak spirit|6
+  - large dragon wyrmling|10
+  - strong spirit|10
+  - dire dungeon wolf|10
+  - werewolf|10
+  - tomb-protector warrior|10
+  - major spirit|15
+  - tomb-protector general|15
+  - tomb-protector lord|17
+  - chaotic spirit|20
+  - small dragon|20
+  - medium dragon|35
+  - manifest spirit|35
+  - large dragon|50
+  - local lich|50

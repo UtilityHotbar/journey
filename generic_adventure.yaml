@@ -1,0 +1,69 @@
+start: town
+scenes: generic_adventure
+
+town:
+  - tavern
+  - store
+  - encounter_town
+  - wilderness
+
+store:
+  - town
+
+tavern:
+  - town
+
+wilderness:
+  - encounter_travel
+  - wilderness
+  - wilderness
+  - wilderness
+  - town
+  - dungeon_entrance
+
+encounter_town:
+  - town
+
+encounter_travel:
+  - wilderness
+
+encounter_dungeon:
+  - dungeon
+
+dungeon_entrance:
+  - dungeon
+
+dungeon:
+  - encounter_dungeon
+  - spoor
+  - trap
+  - explore
+  - reward
+  - progress
+
+dungeon_end:
+  - wilderness
+
+spoor:
+  - dungeon
+  - encounter_dungeon
+
+trap:
+  - encounter_dungeon
+  - dungeon
+
+depletion:
+  - explore
+
+explore:
+  - explore
+  - depletion
+  - dungeon
+
+progress:
+  - dungeon
+  - dungeon_end
+
+reward:
+  - progress
+  - dungeon
