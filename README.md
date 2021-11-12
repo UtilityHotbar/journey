@@ -2,7 +2,7 @@
 _Automated, progress quest-inspired procedural adventuring_
 
 ## What is this project?
-Journey is the result of many, many attempts at making some form of D&D inspired computer program. The scope of this project has, over the years, variously shifted from a text adventure game to a fairly faithful recreation of 5e to a full text adventure scripting engine powered by Markdown to a world simulation that also allowed you to explore it (the last is the Civsim project). It's current party-focused instantiation  owes itself to inspiration from games such as [Dungeon Campaign](https://www.mobygames.com/game/dungeon-campaign) (Although its graphics are, if possible, even worse) as well as automated simulators such as [Progress Quest](http://progressquest.com/). Oh, also automated roguelikes like [Roguathia](https://seiyria.com/Roguathia/). The latter has even received a CLI release recently!
+Journey is the result of many, many attempts at making some form of D&D inspired computer program. The scope of this project has, over the years, variously shifted from a text adventure game to a fairly faithful recreation of 5e to a full text adventure scripting engine powered by Markdown to a world simulation that also allowed you to explore it (the last is the Civsim project). It's current party-focused instantiation  owes itself to inspiration from games such as [Dungeon Campaign](https://www.mobygames.com/game/dungeon-campaign) (Although its graphics are, if possible, even worse) as well as automated simulators such as [Progress Quest](http://progressquest.com/), which has just received a CLI release. Oh, also automated roguelikes like [Roguathia](https://seiyria.com/Roguathia/).
 
 ## How do I "play" TEJ?
 1. Download all files.
