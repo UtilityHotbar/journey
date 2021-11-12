@@ -176,7 +176,7 @@ class Adventurer(dict):
     def attack(self, target):
         if target:
             print(f'{self["name"]} attacks {target.name}!')
-            if roll('1d20')+target.level < roll('1d20')+self.get_mod(self["ABL_dexterity"])+max(self["SKL_melee"], self["SKL_archery"]):
+            if roll('1d20')+math.ceil(target.level/2) < roll('1d20')+self.get_mod(self["ABL_dexterity"])+max(self["SKL_melee"], self["SKL_archery"]):
                 target.change_hp(max(roll(f'1d6+{self["weaponry"]+self.get_mod(self["ABL_strength"])}'), 1)*-1)
 
 
