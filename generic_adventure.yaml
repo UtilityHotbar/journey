@@ -1,5 +1,6 @@
 start: town
 scenes: generic_adventure
+characters: generic_characters
 
 town:
   - tavern
@@ -66,4 +67,7 @@ progress:
 
 reward:
   - progress
+  - dungeon
+
+final_battle:
   - dungeon

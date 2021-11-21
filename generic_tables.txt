@@ -1,0 +1,100 @@
+Table:colours
+ochre
+vermillion
+silver
+gold
+bronze
+aquamarine
+grey
+onyx
+
+Table:qualities
+burnished
+faded
+glimmering
+shadowed
+tarred
+murky
+pitted
+ethereal
+bloody
+
+Table:armour
+chestplate
+greaves
+helmet
+gauntlets
+boots
+shield
+buckler
+
+Table:weapons
+sword
+rapier
+dagger
+falchion
+glaive
+spear
+halberd
+
+Table:room_decoration
+4: A [|fearsome|benign|strange|obscure|worn-away|hidden|dark|foreboding] [@qualities] [@colours] [|carving|relief|image|mounted sculpt|mural|depiction|form] of [|a god|a demon|a hero|a wizard|a beast|a chicken]
+2: A set of braziers containing long-snuffed out torches
+Pillars flanking the walls, [|long collapsed|still intact|in a state of disrepair]
+A stone archway, [|long collapsed|still intact|in a state of disrepair]
+Scattered furniture, [|rotting|ancient|stone-hewn|rough|barely recognisable]
+A chest, split open, empty
+A bubbling fountain filled with [@colours] liquid
+An [@qualities] altar to some unknown deity or lesser being
+A chasm that drops seemingly endlessly
+A door in the middle of the room, leading to... nowhere?
+A chimney leading up, with [|an unstable-looking ladder|a circular staircase] allowing passage
+A river cuts the room in half
+
+Table:armour_desc
+It's a [@qualities] [@colours] [@armour]!
+
+Table:weaponry_desc
+It's a [@qualities] [@colours] [@armour]!
+
+Table:dungeon_purpose
+temple
+dungeon
+castle
+keep
+manor
+cairn
+cavern
+tomb
+catacomb
+sewer
+
+Table:biomes
+grassland
+savannah
+forest
+taiga
+mountain
+chasm
+valley
+wasteland
+mesa
+desert
+beach
+riverbend
+
+Table:location_flavour
+hostile
+desolate
+calm
+relaxing
+vast
+uncaring
+terrifying
+ancient
+
+Table:biome_desc
+[@location_flavour] [@biomes]
+
+Table:dungeon_desc
+[@location_flavour] [@dungeon_purpose]

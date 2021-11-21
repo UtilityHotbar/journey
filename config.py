@@ -1,0 +1,3 @@
+DEBUG = False
+STEP_THROUGH = False
+STORY_MODE = True

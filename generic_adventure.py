@@ -3,9 +3,20 @@ import math
 from rpgtools import roll, delay_print
 import yaml
 from yaml import Loader as yamlLoader
+from table_proc import Table
+from config import *
 
 
 class Adv:
+    def __init__(self):
+        self.data_table = Table('generic_tables.txt')
+        if STORY_MODE:
+            print('The great and terrible necromancer Zy\'lon stands poised to conquer the known world.'
+                  'To defeat him, you must cross 10 areas in search of his Tower, amassing your strength along the way.'
+                  'Will you succeed? Or will you merely fall along the way?')
+        self.quest_progress = 0
+        self.curr_biome = self.data_table.table_fetch('biome_desc')
+
     def generic_encounter(self, nodename, options, party):
         return random.choice(options)
 
@@ -39,11 +50,20 @@ class Adv:
                 priorities = ['armour', 'weaponry']
             else:
                 priorities = ['weaponry', 'armour']
-            for priority in priorities:
-                if member['coin'] > member[priority]*10:
-                    delay_print(f'{member["name"]} upgrades their {priority}!')
-                    member['coin'] -= member[priority]*10
-                    member[priority] += 1
+            upgraded = []
+            while True:
+                not_upgraded = True
+                for priority in priorities:
+                    if member['coin'] > member[priority]*10:
+                        not_upgraded = False
+                        if not priority in upgraded:
+                            upgraded.append(priority)
+                        member['coin'] -= member[priority]*10
+                        member[priority] += 1
+                if not_upgraded:
+                    break
+            for priority in upgraded:
+                delay_print(f'{member["name"]} upgrades their {priority}!')
 
     def tavern(self, options, party):
         delay_print('The party departs to a tavern...')
@@ -56,13 +76,20 @@ class Adv:
                 delay_print(f'{member["name"]} lacked the funds to enter.')
 
     def wilderness(self, options, party):
-        delay_print('The party is in the wilderness.')
+        if self.quest_progress > 10 and STORY_MODE:
+            print('The end of the journey approaches. The tower looms...')
+            return 'final_battle'
+        delay_print(f'The party is in a {self.curr_biome}.')
         res = roll('1d6')
         if res == 1:
             delay_print('The party encounters a random event!')
             return 'encounter_travel'
         elif res in [2, 3, 4]:
             delay_print('The party wanders the wilderness...')
+            if roll('1d6') == 1:
+                delay_print('The party enters a new area!')
+                self.quest_progress += 1
+                self.curr_biome = self.data_table.table_fetch('biome_desc')
             return 'wilderness'
         elif res == 5:
             delay_print('The party encounters a town!')
@@ -81,10 +108,13 @@ class Adv:
         run_encounter('dungeon', party)
 
     def dungeon_entrance(self, options, party):
-        delay_print('The party enters the dungeon...')
+        delay_print(f'The party enters the {self.data_table.table_fetch("dungeon_desc")}...')
 
     def dungeon(self, options, party):
-        delay_print('The party is in a dungeon.')
+        delay_print('The party is in a room.')
+        if roll('1d6') < 2:
+            delay_print('Inside the room is something uncommon...')
+            delay_print(self.data_table.table_fetch('room_decoration')+'.')
         res = roll('1d6')
         if res == 1:
             delay_print('Something shifts in the darkness...')
@@ -215,23 +245,35 @@ class Adv:
             delay_print('At last! The end is in sight!')
             return 'dungeon_end'
 
-    def reward(self, optioins, party):
+    def reward(self, options, party):
         delay_print('Sweet, sweet treasure...')
         for member in party.members:
             if roll('1d6') < 5:
                 member['coin'] += roll(str(member['level'])+'d6')
             else:
                 delay_print(f'{member["name"]} finds something special!')
-                member[random.choice(['weaponry', 'armour'])] += roll('1d4')
+                discovery_kind = random.choice(['weaponry', 'armour'])
+                delay_print(self.data_table.table_fetch(discovery_kind+'_desc'))
+                member[discovery_kind] += roll('1d4')
         if roll('1d6') < 4:
             return 'progress'
         else:
             return 'dungeon'
 
+    def final_battle(self, options, party):
+        print('You do battle with the necromancer Zy\'lon!')
+        finalbattle = []
+        finalbattle.append(Enemy('Zy\'lon', 70, parent=finalbattle))
+        run_fight(party, finalbattle)
+        for member in party.members:
+            party.remove(member, quest_complete=True)
+        print('This is the end of your quest!')
+        exit()
+
 
 class Enemy:
     def __init__(self, name, level, parent=None):
-        self.name = name
+        self.name = name.replace('_', ' ')
         self.level = level
         self.hp = roll(f'{level}d6')
         self.hpmax = self.hp
@@ -318,7 +360,7 @@ def run_fight(party, enemies):
         order = [party, enemies]
     else:
         order = [enemies, party]
-    round = 0
+    round = 1
     while True:
         delay_print(f'ROUND {round}')
         for group in order:
