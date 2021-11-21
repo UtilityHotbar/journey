@@ -3,6 +3,10 @@ _Automated, progress quest-inspired procedural adventuring_
 
 ![demo image](https://github.com/UtilityHotbar/journey/blob/main/picture.png)
 
+## Updates
+* Added Story Mode (change the option in `config.py` if you want to turn it off), guarantees an ending for your game.
+* Added random flavour text, item descriptions etc.
+
 ## What is this project?
 Journey is the result of many, many attempts at making some form of D&D inspired computer program. The scope of this project has, over the years, variously shifted from a text adventure game to a fairly faithful recreation of 5e to a full text adventure scripting engine powered by Markdown to a world simulation that also allowed you to explore it (the last is the Civsim project). It's current party-focused instantiation  owes itself to inspiration from games such as [Dungeon Campaign](https://www.mobygames.com/game/dungeon-campaign) (Although its graphics are, if possible, even worse) as well as automated simulators such as [Progress Quest](http://progressquest.com/), which has just received a CLI release. Oh, also automated roguelikes like [Roguathia](https://seiyria.com/Roguathia/).
 
